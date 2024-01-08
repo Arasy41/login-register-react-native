@@ -1,17 +1,59 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from './components/loginPage';
-import RegisterScreen from './components/registerPage';
-
-const Stack = createNativeStackNavigator();
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import LoginPage from "./components/Pages/loginPage";
+import RegisterPage from "./components/Pages/registerPage";
+import PortoPage from "./components/Pages/portoPage";
 
 const App = () => {
+  const Stack = createStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome To ArtzyApp">
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen
+          name="Login"
+          component={LoginPage}
+          options={{
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "#008000",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterPage}
+          options={{
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "#008000",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Portfolio"
+          component={PortoPage}
+          options={{
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "#555843",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
